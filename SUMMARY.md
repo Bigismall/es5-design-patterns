@@ -1,3 +1,15 @@
 # Summary
 
-* [First Chapter](chapter1.md)
+* [Wstęp](README.md)
+* [Singleton ](chapter1.md)
+* [Fabryka](fabryka.md)
+* Wbudowane fabryki obiektów
+* Iterator
+* Dekorator
+* Strategia
+* Fasada
+* Pośrednik
+* Mediator
+* Obserwator
+* Adapter
+
