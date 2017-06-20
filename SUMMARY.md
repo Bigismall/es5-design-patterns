@@ -1,8 +1,9 @@
 # Summary
 
+* [Introduction](README.md)
 * [Singleton ](chapter1.md)
 * [Fabryka](fabryka.md)
-* Adapter
+* [Adapter](adapter.md)
 * Dekorator
 * Fasada
 * Pośrednik
@@ -11,6 +12,4 @@
 * Stan
 * Mediator
 * Obserwator
-
-
 
