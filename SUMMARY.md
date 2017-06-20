@@ -7,7 +7,7 @@
 * [Dekorator](dekorator.md)
 * [Fasada](fasada.md)
 * [Pośrednik](posrednik.md)
-* Iterator
+* [Iterator](iterator.md)
 * Strategia
 * Stan
 * Mediator
