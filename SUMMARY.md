@@ -4,7 +4,7 @@
 * [Singleton ](chapter1.md)
 * [Fabryka](fabryka.md)
 * [Adapter](adapter.md)
-* Dekorator
+* [Dekorator](dekorator.md)
 * Fasada
 * Pośrednik
 * Iterator
