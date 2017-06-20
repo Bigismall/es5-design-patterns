@@ -10,6 +10,6 @@
 * [Iterator](iterator.md)
 * [Strategia](strategia.md)
 * [Stan](stan.md)
-* Mediator
+* [Mediator](mediator.md)
 * Obserwator
 
