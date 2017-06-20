@@ -5,7 +5,7 @@
 * [Fabryka](fabryka.md)
 * [Adapter](adapter.md)
 * [Dekorator](dekorator.md)
-* Fasada
+* [Fasada](fasada.md)
 * Pośrednik
 * Iterator
 * Strategia
