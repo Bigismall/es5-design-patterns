@@ -60,3 +60,5 @@ class SolwitEvenNumberIterator {
 
 [https://codepen.io/Bigismall/pen/bRWqxd](https://codepen.io/Bigismall/pen/bRWqxd)
 
+**Zastosowanie:** Pobieranie kolejnych wystąpień przedmiotu z planu lekcji
+
