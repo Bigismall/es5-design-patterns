@@ -9,7 +9,7 @@
 * [Pośrednik](posrednik.md)
 * [Iterator](iterator.md)
 * [Strategia](strategia.md)
-* Stan
+* [Stan](stan.md)
 * Mediator
 * Obserwator
 
