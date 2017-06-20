@@ -1,6 +1,13 @@
 # Pośrednik
 
-sdadsa
+We wzorcu projektowym pośrednika jedne obiekt stanowi interfejs dla innego obiektu.  Pośrednik znajduje się między użytkownikiem a obiektem i broni dostępu do niego. Choć wzorzec wygląda jak dodatkowy narzut, w rzeczywistości często służy do poprawy wydajności. Pośrednik może być przydatny w przypadkach:
+
+* leniwe tworzenie instancji kosztownego obiektu
+* ochrona danych poufnych
+* symulowanie zachowania wywołania metody zdalnej \(middleware\)
+* wprowadzenie dodatkowych działań przed wywołaniem metody lub po nim
+
+
 
 ```js
 class Subject {
