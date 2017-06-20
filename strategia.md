@@ -54,7 +54,7 @@ var currentMoney = 300,
 travelResult = travelStrategy.travel('Danzig', 'Hamburg');
 ```
 
-
+[https://codepen.io/Bigismall/pen/YQVVyo](https://codepen.io/Bigismall/pen/YQVVyo)
 
 **Zastosowanie:** geolokalizacja, walidacja danych, wyświetlanie danych \(lightbox, player\)
 
