@@ -1,10 +1,8 @@
 # Iterator
 
-sadsadsa
+Iterator to wzorzec oferujący prostą metodę sekwencyjnego wybierania kolejnego elementu z kolekcji.
 
-
-
-
+Dane w kolekcji mogą być przechowywane wewnętrznie w bardzo złożonej strukturze, ale sekwencyjny dostęp do nich zapewnia bardzo prosta funkcja \(next\(\)\).  Kod korzystający z obiektu nie musi znać całej złożoności struktury danych - wystarczy, że wie, jak korzystać z pojedynczego elementu i pobrać następny.
 
 ```js
 class SolwitIterator {
@@ -60,5 +58,5 @@ class SolwitEvenNumberIterator {
 }
 ```
 
-
+[https://codepen.io/Bigismall/pen/bRWqxd](https://codepen.io/Bigismall/pen/bRWqxd)
 
