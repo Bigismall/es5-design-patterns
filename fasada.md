@@ -4,6 +4,15 @@ Wzorzec fasady jest bardzo prosty i ma za zadanie zapewnić alternatywny \(upros
 
 Fasada to w zasadzie specjalny przypadek wzorca Adapter, który zapewnia uproszczony interfejs dla **kolekcji **klas.
 
+
+| Wzorzec | Przeznaczenie |
+| :--- | :--- |
+| Adapter | Dokonuje konwersji jednego interfejsu na inny |
+| Dekorator | Nie modyfikuje interfejsu, ale dodaje zachowania |
+| Fasada | Powoduje uproszczenie interfejsu |
+
+
+
 ```js
 'use strict';
 
