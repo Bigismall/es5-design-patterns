@@ -14,6 +14,8 @@ Wzorzec adapter jest często używany do zmiany poziomu abstrakcji kodu.
 
 
 
+
+
 ```js
 const HPA_IN_MMHG = 0.7500617;
 
