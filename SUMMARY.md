@@ -8,7 +8,7 @@
 * [Fasada](fasada.md)
 * [Pośrednik](posrednik.md)
 * [Iterator](iterator.md)
-* Strategia
+* [Strategia](strategia.md)
 * Stan
 * Mediator
 * Obserwator
