@@ -6,7 +6,7 @@
 * [Adapter](adapter.md)
 * [Dekorator](dekorator.md)
 * [Fasada](fasada.md)
-* Pośrednik
+* [Pośrednik](posrednik.md)
 * Iterator
 * Strategia
 * Stan
