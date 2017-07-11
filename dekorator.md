@@ -10,49 +10,63 @@ Cechą wzorca dekoratora jest łatwość dostosowania i konfiguracji oczekiwaneg
 | Dekorator | Nie modyfikuje interfejsu, ale dodaje zachowania |
 | Fasada | Powoduje uproszczenie interfejsu |
 
-
-
 ```js
-class Sell {
-    constructor(name = '', price = 0) {
-        this.name = name;
-        this.price = price;
-    }
-
-    getPrice() {
-        return this.price;
-    }
+function Sale(price) {
+    this.price = price || 100;
 }
 
+Sale.prototype.decorate = function (decorator) {
+    var F = function () {
+        },
+        overrides = this.constructor.decorators[decorator],
+        i, newobj;
 
-class VAT {
-    constructor(sell) {
-        this.sell = sell;
-        this.rate = 25;
+    F.prototype = this;
+    newobj = new F();
+    newobj.super = F.prototype;
+
+    for (i in overrides) {
+        if (overrides.hasOwnProperty(i)) {
+            newobj[i] = overrides[i];
+        }
     }
 
-    getPrice() {
-        return this.sell.getPrice() * (1 + this.rate / 100);
+    return newobj;
+};
+
+Sale.prototype.getPrice = function () {
+    return this.price;
+};
+
+Sale.decorators = {};
+
+
+Sale.decorators.vat = {
+    getPrice: function () {
+        var price = this.super.getPrice();
+        price *= 1.25;
+        return price;
     }
-}
+};
 
-
-class HET {//HigherEducationTax
-    constructor(sell) {
-        this.sell = sell;
-        this.rate = 10;
+Sale.decorators.het = {
+    getPrice: function () {
+        var price = this.super.getPrice();
+        price *= 1.5;
+        return price;
     }
+};
 
-    getPrice() {
-        return this.sell.getPrice() * (1 + this.rate / 100);
-    }
-}
+var sale = new Sale(100);
+var saleWithVat = sale.decorate('vat');
+var saleWithVatAndHet = sale.decorate('vat').decorate('het');
 
 
-let sell = new Sell('ksiązki', 100);
-let sellWithVat = new VAT(sell);
-let sellWithVatAndHet = new HET(new VAT(sell));
+console.log(sale.getPrice());                   //100
+console.log(saleWithVat.getPrice());            //125
+console.log(saleWithVatAndHet.getPrice());      //187.5
+
 ```
 
-[https://codepen.io/Bigismall/pen/ZyKLdb](https://codepen.io/Bigismall/pen/ZyKLdb)
+
 
