@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-* [Singleton ](chapter1.md)
+* [Singleton ](singleton.md)
 * [Fabryka](fabryka.md)
 * [Dekorator](dekorator.md)
 * [Fasada](fasada.md)
