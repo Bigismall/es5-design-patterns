@@ -1,4 +1,4 @@
-# Fabryka \(simple factory\)
+# Fabryka \(factory method\)
 
 Celem wzorca fabryki jest tworzenie obiektów. Najczęściej fabryką jest klasa lub metoda statyczna klasy, której celem jest:
 
@@ -62,7 +62,6 @@ class CarFactory {
         }
     }
 }
-
 ```
 
 [https://codepen.io/Bigismall/pen/WOjRQy](https://codepen.io/Bigismall/pen/WOjRQy)
