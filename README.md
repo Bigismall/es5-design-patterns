@@ -1,4 +1,4 @@
-# Implementacja wybranych wzorców projektowych z użyciem EcmaScript 6
+# Implementacja wybranych wzorców projektowych z użyciem EcmaScript 5
 
 Kreacyjne
 - Singleton
