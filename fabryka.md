@@ -64,7 +64,7 @@ class CarFactory {
 }
 ```
 
-[https://codepen.io/Bigismall/pen/WOjRQy](https://codepen.io/Bigismall/pen/WOjRQy)
+
 
 **Zastosowanie:** zwracanie odpowiedniej funkcji sortującej w zależności od typu danych
 
