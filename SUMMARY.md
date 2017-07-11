@@ -3,7 +3,6 @@
 * [Introduction](README.md)
 * [Singleton ](chapter1.md)
 * [Fabryka](fabryka.md)
-* [Adapter](adapter.md)
 * [Dekorator](dekorator.md)
 * [Fasada](fasada.md)
 * [Pośrednik](posrednik.md)
@@ -12,4 +11,6 @@
 * [Stan](stan.md)
 * [Mediator](mediator.md)
 * [Obserwator](obserwator.md)
+
+
 
