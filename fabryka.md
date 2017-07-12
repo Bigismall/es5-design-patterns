@@ -65,5 +65,7 @@ console.log(solstice.drive()); // "Vroom, I have 2 doors"
 console.log(cherokee.drive()); // "Vroom, I have 24 doors"
 ```
 
+[https://codepen.io/Bigismall/pen/owmNMQ](https://codepen.io/Bigismall/pen/owmNMQ)
+
 **Zastosowanie:** zwracanie odpowiedniej funkcji sortującej w zależności od typu danych
 
