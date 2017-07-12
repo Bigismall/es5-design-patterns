@@ -12,8 +12,6 @@ Wzorzec adapter jest często używany do zmiany poziomu abstrakcji kodu.
 | Dekorator | Nie modyfikuje interfejsu, ale dodaje zachowania |
 | Fasada | Powoduje uproszczenie interfejsu |
 
-
-
 ```js
 function Ship() {
     this.setRudderAngleTo = function (angle) {
@@ -69,8 +67,7 @@ var ship = new SimpleShipAdapter();
 
 ship.goForward();
 ship.turnLeft();
-
 ```
 
-
+[https://codepen.io/Bigismall/pen/gRqbOp](https://codepen.io/Bigismall/pen/gRqbOp)
 
