@@ -11,4 +11,7 @@
 * [Strategia](strategia.md)
 * [Stan](stan.md)
 * [Mediator](mediator.md)
+* [Observator](/obserwator.md)
+
+
 
