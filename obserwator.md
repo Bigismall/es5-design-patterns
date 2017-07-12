@@ -75,12 +75,9 @@ newsPaper.unsubscribe(leszek);
 newsPaper.unsubscribe(mateusz);
 
 newsPaper.daily("Ziobro chce zmienić prawo, żeby homofobiczna dyskryminacja była legalna!");
-
 ```
 
-[https://codepen.io/Bigismall/pen/GEmEaG](https://codepen.io/Bigismall/pen/GEmEaG)
+[https://codepen.io/Bigismall/pen/MoLWOJ](https://codepen.io/Bigismall/pen/MoLWOJ)
 
 Nic nie stoi na przeszkodzie aby obserwator był zarazem obiektem publikującym i na odwrót aby obiekt publikujący był zarazem obserwatorem. W rezultacie mamy  2 kierunkową komunikację luźno powiązanych obiektów.
-
-[https://codepen.io/Bigismall/pen/owWevG](https://codepen.io/Bigismall/pen/owWevG)
 
