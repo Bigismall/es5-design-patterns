@@ -159,11 +159,7 @@ try {
 } catch (e) {
     console.log('ERROR: ' + e.message);
 }
-
-
-
-
 ```
 
-
+[https://codepen.io/Bigismall/pen/RgvbmJ](https://codepen.io/Bigismall/pen/RgvbmJ)
 
