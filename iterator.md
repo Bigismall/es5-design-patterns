@@ -5,60 +5,54 @@ Iterator to wzorzec oferujący prostą metodę sekwencyjnego wybierania kolejneg
 Dane w kolekcji mogą być przechowywane wewnętrznie w bardzo złożonej strukturze, ale sekwencyjny dostęp do nich zapewnia bardzo prosta funkcja \(next\(\)\).  Kod korzystający z obiektu nie musi znać całej złożoności struktury danych - wystarczy, że wie, jak korzystać z pojedynczego elementu i pobrać następny.
 
 ```js
-class SolwitIterator {
-    constructor(collection) {
-        this.data = collection;
-        this.dataLength = this.data.length;
-        this.pointer = 0;
-    };
-
-    hasNext() {
-        return this.pointer < this.dataLength;
+function randomRange(items, from, to) {
+    var randomValuesArray = [], i = 0;
+    for (; i < items; i++) {
+        randomValuesArray.push(from + Math.floor(Math.random() * to) + 1);
     }
-
-    next() {
-        if (!this.hasNext()) {
-            return null;
-        }
-        return this.data[this.pointer++];
-    }
+    return randomValuesArray;
 }
 
+var randomNumbers = randomRange(10, 0, 100),
+    simpleIterator = (function (collection) {
+        var pointer = 0,
+            collectionLength = collection.length;
 
-class SolwitEvenNumberIterator {
-    constructor(collection) {
-        this.data = collection;
-        this.dataLength = this.data.length;
-        this.pointer = this.getNextPointer();
-    };
+        return {
+            next: function () {
 
-    getNextPointer() {
-        if (undefined === this.pointer) {
-            return this.data.findIndex((element) => 0 === element % 2);
-        }
-        return this.data.findIndex((element, dataIndex) => {
-            return (dataIndex > this.pointer) && (0 === element % 2)
-        });
-    }
-
-    hasNext() {
-        return this.pointer !== -1;
-    }
-
-    next() {
-        let element;
-        if (!this.hasNext()) {
-            return null;
+                if (!this.hasNext()) {
+                    return null;
+                }
+                return collection[pointer++];
+            },
+            hasNext: function () {
+                return pointer < collectionLength;
+            }
         }
 
-        element = this.data[this.pointer];
-        this.pointer = this.getNextPointer();
-        return element;
-    }
+
+    }(randomNumbers));
+
+
+console.log(randomNumbers);         //[ 98, 94, 38, 21, 72, 67, 9, 6, 56, 88 ]
+
+while (simpleIterator.hasNext()) {
+    console.log(simpleIterator.next());
 }
+// 98
+// 94
+// 38
+// 21
+// 72
+// 67
+// 9
+// 6
+// 56
+// 88
 ```
 
-[https://codepen.io/Bigismall/pen/bRWqxd](https://codepen.io/Bigismall/pen/bRWqxd)
+
 
 **Zastosowanie:** Pobieranie kolejnych wystąpień przedmiotu z planu lekcji
 
