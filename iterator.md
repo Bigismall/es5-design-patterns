@@ -52,7 +52,7 @@ while (simpleIterator.hasNext()) {
 // 88
 ```
 
-
+[https://codepen.io/Bigismall/pen/VWgwyV](https://codepen.io/Bigismall/pen/VWgwyV)
 
 **Zastosowanie:** Pobieranie kolejnych wystąpień przedmiotu z planu lekcji
 
