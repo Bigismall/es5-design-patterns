@@ -65,8 +65,7 @@ var saleWithVatAndHet = sale.decorate('vat').decorate('het');
 console.log(sale.getPrice());                   //100
 console.log(saleWithVat.getPrice());            //125
 console.log(saleWithVatAndHet.getPrice());      //187.5
-
 ```
 
-
+[https://codepen.io/Bigismall/pen/EXrxEQ](https://codepen.io/Bigismall/pen/EXrxEQ)
 
