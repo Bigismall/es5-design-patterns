@@ -30,7 +30,7 @@ function RealSubject() {
 }
 
 RealSubject.prototype = Object.create(Subject.prototype);
-RealSubject.prototype.constructor = Subject;
+RealSubject.prototype.constructor = RealSubject;
 
 
 function Proxy() {
