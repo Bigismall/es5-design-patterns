@@ -7,51 +7,83 @@ We wzorcu projektowym pośrednika jedne obiekt stanowi interfejs dla innego obie
 * symulowanie zachowania wywołania metody zdalnej \(middleware\)
 * wprowadzenie dodatkowych działań przed wywołaniem metody lub po nim
 
-
-
 ```js
-class Subject {
-    constructor() {
-    }
+var API_URL = "https://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&limit=1&offset=0";
+var API_QUERY = "&q=";
 
-    request(query) {
-        return JSON.parse("{}");
+
+function Subject() {
+    this.request = function (query) {
+        throw Error("Not implemented");
     }
 }
 
-class RealSubject extends Subject {
-    constructor() {
-        super();
-    }
+function RealSubject() {
+    Subject.call(this);
 
-    request(query) {
+    this.request = function (query) {
         return fetch(API_URL + API_QUERY + encodeURIComponent(query))
-            .then(response => response.json());
+            .then(function (response) {
+                return response.json();
+            });
     }
 }
 
-class Proxy extends Subject {
-    constructor() {
-        super();
-        this.cache = {};
-    }
+RealSubject.prototype = Object.create(Subject.prototype);
+RealSubject.prototype.constructor = Subject;
 
-    request(query) {
+
+function Proxy() {
+    Subject.call(this);
+    this.cache = {};
+
+    this.request = function (query) {
         console.log('PROXY request for QUERY: ', query);
+
         if (this.cache.hasOwnProperty(query)) {
             return this.cache[query];
         } else {
-            const realSubject = new RealSubject();
+            var realSubject = new RealSubject(),
+                that = this;
+
             realSubject
                 .request(query)
-                .then(body => {
-                    this.cache[query] = body.data[0]['embed_url'];
-                    return this.cache[query];
+                .then(function (body) {
+                    that.cache[query] = body.data[0]['embed_url'];
+                    return that.cache[query];
                 });
         }
     }
+
 }
+
+Proxy.prototype = Object.create(Subject.prototype);
+Proxy.prototype.constructor = Subject;
+
+
+var proxy = new Proxy();
+proxy.request("plane");
+
+window.setTimeout(function () {
+    return proxy.request("truck");
+}, 3000);
+
+window.setTimeout(function () {
+    return proxy.request("plane");
+}, 6000);
+
+window.setTimeout(function () {
+    return proxy.request("truck");
+}, 9000);
+
+window.setTimeout(function () {
+    return proxy.request("plane");
+}, 12000);
+
+window.setTimeout(function () {
+    return console.log(proxy.cache);
+}, 15000);
 ```
 
-[https://codepen.io/Bigismall/pen/rwjwWe](https://codepen.io/Bigismall/pen/rwjwWe)
+[https://codepen.io/collection/DBQYvr/](https://codepen.io/collection/DBQYvr/)
 
