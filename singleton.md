@@ -24,8 +24,7 @@ var uni2 = new Universe("2");
 console.log(uni1);                  //Universe { start_time: 1499795415812, name: '1' }
 console.log(uni2);                  //Universe { start_time: 1499795415812, name: '1' }
 console.log(uni1 === uni2);         // true
-
 ```
 
-
+[https://codepen.io/Bigismall/pen/qjgBKy](https://codepen.io/Bigismall/pen/qjgBKy)
 
