@@ -2,7 +2,9 @@
 
 Wzorzec fasady jest bardzo prosty i ma za zadanie zapewnić alternatywny \(uproszczony\) interfejs obiektu.
 
-Fasada to w zasadzie specjalny przypadek wzorca Adapter, który zapewnia uproszczony interfejs dla **kolekcji **klas.
+Dobrą praktyka jest stosowanie krótkich metod, które nie wykonują zbyt wielu zadań. Stosując to podejście, uzyskuje się znacznie więcej metod niż w przypadku tworzenie **supermetod** z wieloma parametrami. W  większości sytuacji dwie lub więcej metod wykonuje się jednocześnie. Warto wtedy utworzyć jeszcze jedną metodę, który stanowi otoczę dla takich połączeń.
+
+
 
 | Wzorzec | Przeznaczenie |
 | :--- | :--- |
