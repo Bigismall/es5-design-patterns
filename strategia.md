@@ -3,58 +3,81 @@
 Wzorzec strategii umożliwia wybór odpowiedniego algorytmu na etapie działania aplikacji. Użytkownicy kodu mogą stosować **ten sam interfejs** zewnętrzny, ale wybierać wybierać spośród kilku dostępnych algorytmów, by lepiej dopasować implementację do aktualnego **kontekstu**.
 
 ```js
-class TravelResult {
-    constructor(durationInDays, probabilityOfDeath, cost) {
-        this.durationInDays = durationInDays;
-        this.probabilityOfDeath = probabilityOfDeath;
-        this.cost = cost;
+function TravelResult(name, durationInDays, probabilityOfDeath, cost) {
+    this.name = name;
+    this.durationInDays = durationInDays;
+    this.probabilityOfDeath = probabilityOfDeath;
+    this.cost = cost;
+}
+
+
+function TravelBase() {
+    this.travel = function (source, destination) {
+        throw Error("Not implemented");
     }
 }
 
-class SeaGoingVessel {
-    travel(source, destination) {
+
+function Ship() {
+    TravelBase.call(this)
+
+    this.travel = function (source, destination) {
         this.source = source;
         this.destination = destination;
-        return new TravelResult(15, .25, 500);
+        return new TravelResult('Ship', 15, .25, 500);
     }
 }
 
-class Horse {
-    travel(source, destination) {
+Ship.prototype = Object.create(TravelBase.prototype);
+Ship.prototype.constructor = Ship;
+
+
+function Horse() {
+    this.travel = function (source, destination) {
         this.source = source;
         this.destination = destination;
-        return new TravelResult(30, .25, 50);
+        return new TravelResult('Horse', 30, .25, 50);
     }
 }
+Horse.prototype = Object.create(TravelBase.prototype);
+Horse.prototype.constructor = Horse;
 
-class Walk {
-    travel(source, destination) {
+
+function Walk() {
+
+    this.travel = function (source, destination) {
         this.source = source;
         this.destination = destination;
-        return new TravelResult(150, .55, 0);
+        return new TravelResult('Walk', 150, .55, 0);
     }
 }
+Walk.prototype = Object.create(TravelBase.prototype);
+Walk.prototype.constructor = Walk;
 
-class TravelStrategy {
-    static get(moneyAmount) {
-        if (moneyAmount > 500)
-            return new SeaGoingVessel();
-        else if (moneyAmount > 50)
-            return new Horse();
-        else
-            return new Walk();
-    }
+
+function TravelStrategy() {
+}
+
+TravelStrategy.get = function (moneyAmount) {
+    if (moneyAmount > 500)
+        return new Ship();
+    else if (moneyAmount > 50)
+        return new Horse();
+    else
+        return new Walk();
 }
 
 
-var currentMoney = 300,
+var currentMoney = 1300,
     travelStrategy = TravelStrategy.get(currentMoney),
     travelResult;
 
 travelResult = travelStrategy.travel('Danzig', 'Hamburg');
+console.log(travelResult);
+
 ```
 
-[https://codepen.io/Bigismall/pen/YQVVyo](https://codepen.io/Bigismall/pen/YQVVyo)
+
 
 **Zastosowanie:** geolokalizacja, walidacja danych, wyświetlanie danych \(lightbox, player\)
 
