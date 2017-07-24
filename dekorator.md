@@ -11,60 +11,63 @@ Cechą wzorca dekoratora jest łatwość dostosowania i konfiguracji oczekiwaneg
 | Fasada | Powoduje uproszczenie interfejsu |
 
 ```js
-function Sale(price) {
-    this.price = price || 100;
+function ISell() {
+    this.getPrice = function () {
+        throw Error("Not implemented");
+    }
 }
 
-Sale.prototype.decorate = function (decorator) {
-    var F = function () {
-        },
-        overrides = this.constructor.decorators[decorator],
-        i, newobj;
 
-    F.prototype = this;
-    newobj = new F();
-    newobj.super = F.prototype;
+function Sell(name, price) {
+    ISell.call(this);
+    this.name = name;
+    this.price = price;
 
-    for (i in overrides) {
-        if (overrides.hasOwnProperty(i)) {
-            newobj[i] = overrides[i];
-        }
+    this.getPrice = function () {
+        return this.price;
     }
+}
 
-    return newobj;
-};
-
-Sale.prototype.getPrice = function () {
-    return this.price;
-};
-
-Sale.decorators = {};
+Sell.prototype = Object.create(ISell.prototype);
+Sell.prototype.constructor = Sell;
 
 
-Sale.decorators.vat = {
-    getPrice: function () {
-        var price = this.super.getPrice();
-        price *= 1.25;
-        return price;
+function VAT(sell) {
+    ISell.call(this);
+
+    this.sell = sell;
+    this.rate = 25;
+
+    this.getPrice = function () {
+        return this.sell.getPrice() * (1 + this.rate / 100);
     }
-};
+}
 
-Sale.decorators.het = {
-    getPrice: function () {
-        var price = this.super.getPrice();
-        price *= 1.5;
-        return price;
+VAT.prototype = Object.create(ISell.prototype);
+VAT.prototype.constructor = VAT;
+
+
+function HET(sell) {//HigherEducationTax
+    ISell.call(this);
+
+    this.sell = sell;
+    this.rate = 10;
+
+    this.getPrice = function () {
+        return this.sell.getPrice() * (1 + this.rate / 100);
     }
-};
+}
 
-var sale = new Sale(100);
-var saleWithVat = sale.decorate('vat');
-var saleWithVatAndHet = sale.decorate('vat').decorate('het');
+HET.prototype = Object.create(ISell.prototype);
+HET.prototype.constructor = HET;
 
+var sell = new Sell('Books', 100);
+var sellWithVat = new VAT(sell);
+var sellWithVatAndHet = new HET(new VAT(sell));
 
-console.log(sale.getPrice());                   //100
-console.log(saleWithVat.getPrice());            //125
-console.log(saleWithVatAndHet.getPrice());      //187.5
+console.log('Sell price: ', sell.getPrice());                                //100
+console.log('Sell with VAT price: ', sellWithVat.getPrice());                //125
+console.log('Sell with VAT and HET price: ', sellWithVatAndHet.getPrice());  //137.5
 ```
 
 [https://codepen.io/Bigismall/pen/EXrxEQ](https://codepen.io/Bigismall/pen/EXrxEQ)
